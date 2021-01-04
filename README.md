@@ -10,6 +10,7 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 5. `./scripts/feeds install -a`
 6. steps 2 - 5 take only a few minutes
 7. now `make menuconfig` to choose some basic settings
-  1. first select the target system, e.g. DLINK DIR-505
-  2. 
+8. first select the target system, e.g. DLINK DIR-505
+
+9. 
 
