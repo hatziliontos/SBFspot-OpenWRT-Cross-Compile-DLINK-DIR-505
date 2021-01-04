@@ -1,7 +1,7 @@
 # SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505
 Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
-## Host OS settings (Virtual Box Debian 10)
+## Host OS initial settings (Virtual Box Debian 10)
 
 1. login to host operating system as a non root user, e.g. deb10 in my case
 2. get the latest openwrt version: `git clone https://github.com/openwrt/openwrt.git`
@@ -30,3 +30,9 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 13. finally, if you want to use `SBFspot` with `sqlite3 database` support, go to `Libraries->Database`, select `libsqlite3` and leave `Configuration` as it is
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard05.jpg)
+
+14. choose exit and save configuration
+15. now do `make V=sc`, it takes a long time to finish (it took me more than 5 hours)
+
+## Host OS cross compilation settings (Virtual Box Debian 10)
+
