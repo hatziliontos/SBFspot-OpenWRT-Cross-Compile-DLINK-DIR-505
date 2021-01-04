@@ -10,14 +10,17 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 5. `./scripts/feeds install -a`
 6. steps 2 - 5 take only a few minutes
 7. now `make menuconfig` to choose some basic settings
-8. first select the target system, e.g. DLINK DIR-505
+8. first select the target system, e.g. `DLINK DIR-505`
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard01.jpg)
 
-9. then go to Libraries
-10. select bluez-libs
+9. then go to `Libraries`
+10. select `bluez-libs`
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard02.jpg)
 
-11. 
+11. just below select `boost`
 
+![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard03.jpg)
+
+12.
