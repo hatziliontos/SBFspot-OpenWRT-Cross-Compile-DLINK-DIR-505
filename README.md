@@ -1,9 +1,14 @@
 # SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505
 Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
-## Host OS initial settings (Virtual Box Debian 10)
+## 1. Host OS initial settings (Virtual Box Debian 10)
 
-1. login to host operating system as a non root user, e.g. deb10 in my case
+[source for openwrt setup](https://electrosome.com/cross-compile-openwrt-c-program/)
+
+1. login to host operating system as a non root user, e.g. deb10 in my case, and execute:
+`sudo apt update
+sudo apt install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev
+sudo apt install subversion mercurial`
 2. get the latest openwrt version: `git clone https://github.com/openwrt/openwrt.git`
 3. `cd openwrt`
 4. `./scripts/feeds update -a`
@@ -34,5 +39,5 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 14. choose exit and save configuration
 15. now do `make V=sc`, it takes a long time to finish (it took me more than 5 hours)
 
-## Host OS cross compilation settings (Virtual Box Debian 10)
+## 2. Host OS cross compilation settings (Virtual Box Debian 10)
 
