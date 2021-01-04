@@ -75,7 +75,7 @@ from `AR = ar` to `AR = mips-openwrt-linux-musl-ar`
 
 from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 
-10. now we have to tell the cross compile tools where to search for our compiled libraries (libbluetooth, libboost_date_time and if needed libsqlite3, the same with their c++ header files)
+10. now we have to tell the cross compile tools where to search for our compiled libraries (`libbluetooth`, `libboost_date_time` and if needed `libsqlite3`, the same with their c++ header files)
 11. continue to `INCDIR     := ` and replace with `INCDIR     := /home/deb10/openwrt/build_dir/target-mips_24kc_musl/boost_1_75_0/ipkg-install/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/bluez-5.54/ipkg-install/usr/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/sqlite-autoconf-3330000/ipkg-install/usr/include/`
 12. similarly, replace `LIBDIR     :=` with `LIBDIR     := /home/deb10/openwrt/build_dir/target-mips_24kc_musl/boost_1_75_0/ipkg-install/lib/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/bluez-5.54/ipkg-install/usr/lib/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/sqlite-autoconf-3330000/ipkg-install/usr/lib/`
 13. now run `cd /home/deb10/SBFspot-3.7.0/SBFspot`
@@ -87,7 +87,7 @@ from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 
 ## 3. Target OS results (DLINK DIR-505)
 
-1. as i previously noted, in my case, the `DLINK DIR-505` complained only about `libboost_date_time.so`
+1. in my case, the `DLINK DIR-505` complained only about missing `libboost_date_time.so`, `libbluetooth.so` and `libsqlite3.so` had been previously installed by other means for different purposes, e.g. by openwrt GUI package manager
 2. one solution is to transfer the compiled `libboost_date_time.so` inside `/usr/lib/`
 3. a second solution is to use openwrt GUI package manager, search for the library and press `install` button
 4. 
