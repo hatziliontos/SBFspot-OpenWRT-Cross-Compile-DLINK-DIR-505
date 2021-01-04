@@ -58,9 +58,19 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 `export PATH=$TOOLCHAIN_DIR/bin:$PATH`
 
-2. `toolchain-mips_24kc_gcc-8.4.0_musl` created automatically during compilation and it depends on router architecture (e.g. `DLINK DIR-505`)
+2. `toolchain-mips_24kc_gcc-8.4.0_musl` was created automatically during compilation and it depends on router architecture (e.g. `DLINK DIR-505`)
 3. now run `source /bin/openwrt.config`
 4. go to `/home/deb10/`
-5. downolad SBFspot source code: `wget https://github.com/SBFspot/SBFspot/archive/V3.7.0.zip`
-6. `unzip V3.7.0.zip`
-7. 
+5. download SBFspot source code: `wget https://github.com/SBFspot/SBFspot/archive/V3.7.0.zip`
+6. `unzip V3.7.0.zip` to `/home/deb10/SBFspot-3.7.0/` folder
+7. in order to successfully compile SBFspot source code we must edit `/home/deb10/SBFspot-3.7.0/SBFspot/makefile`
+8. go to `/home/deb10/openwrt/staging_dir/toolchain-mips_24kc_gcc-8.4.0_musl/bin/` and see which cross compile tools have been created by the compilation system: `mips-openwrt-linux-musl-ar`, `mips-openwrt-linux-musl-c++`, `mips-openwrt-linux-musl-g++`, `mips-openwrt-linux-musl-gcc`, etc
+9. from `makefile`, make suitable changes to the following lines:
+
+from `CC = gcc` to `CC = mips-openwrt-linux-musl-gcc`
+
+from `CXX = g++` to `CXX = mips-openwrt-linux-musl-g++`
+
+from `AR = ar` to `AR = mips-openwrt-linux-musl-ar`
+
+from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
