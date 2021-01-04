@@ -42,6 +42,21 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 14. choose exit and save configuration
 15. now do `make V=sc`, it takes a long time to finish (it took me more than 5 hours)
+16. after ending compilation my `vdi` file size increased to 23GB (`make` process creates lots of folders and files)
 
 ## 2. Host OS cross compilation settings (Virtual Box Debian 10)
 
+1. create the file `/bin/openwrt.config` and place inside:
+
+`export STAGING_DIR=/home/ligo/chaos_calmer/staging_dir`
+
+`export TOOLCHAIN_DIR=$STAGING_DIR/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2`
+
+`export LDCFLAGS=$TOOLCHAIN_DIR/usr/lib`
+
+`export LD_LIBRARY_PATH=$TOOLCHAIN_DIR/usr/lib`
+
+`export PATH=$TOOLCHAIN_DIR/bin:$PATH`
+
+2. now run `source /bin/openwrt.config`
+3. 
