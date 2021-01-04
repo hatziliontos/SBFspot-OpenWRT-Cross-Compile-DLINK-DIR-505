@@ -11,6 +11,6 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 6. steps 2 - 5 take only a few minutes
 7. now `make menuconfig` to choose some basic settings
 8. first select the target system, e.g. DLINK DIR-505
-
+!(https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard01.jpg)
 9. 
 
