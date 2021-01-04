@@ -14,5 +14,10 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard01.jpg)
 
-9. 
+9. then go to Libraries
+10. select bluez-libs
+
+![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard02.jpg)
+
+11. 
 
