@@ -90,4 +90,4 @@ from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 1. in my case, the `DLINK DIR-505` complained only about missing `libboost_date_time.so`, `libbluetooth.so` and `libsqlite3.so` had been previously installed by other means for different purposes, e.g. by openwrt GUI package manager
 2. one solution is to transfer the compiled `libboost_date_time.so` inside `/usr/lib/`
 3. a second solution is to use openwrt GUI package manager, search for the library and press `install` button
-4. 
+4. `SBFspot` on this system takes 5-6 secs to return a full daily report (e.g. `./SBFspot -finq -v5`)
