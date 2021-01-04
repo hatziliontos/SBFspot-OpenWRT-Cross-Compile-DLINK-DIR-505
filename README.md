@@ -1,7 +1,7 @@
 # SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505
 Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
-## 1. Host OS initial settings (Virtual Box Debian 10)
+## 1. Host OS initial openwrt setup (Virtual Box Debian 10)
 
 [source for openwrt setup](https://electrosome.com/cross-compile-openwrt-c-program/)
 
@@ -74,3 +74,13 @@ from `CXX = g++` to `CXX = mips-openwrt-linux-musl-g++`
 from `AR = ar` to `AR = mips-openwrt-linux-musl-ar`
 
 from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
+
+10. now we have to tell the cross compile tools where to search for our compiled libraries (libbluetooth, libboost_date_time and if needed libsqlite3, the same with their c++ header files)
+11. continue to `INCDIR     := ` and replace with `INCDIR     := /home/deb10/openwrt/build_dir/target-mips_24kc_musl/boost_1_75_0/ipkg-install/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/bluez-5.54/ipkg-install/usr/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/sqlite-autoconf-3330000/ipkg-install/usr/include/`
+12. similarly, replace `LIBDIR     :=` with `LIBDIR     := /home/deb10/openwrt/build_dir/target-mips_24kc_musl/boost_1_75_0/ipkg-install/lib/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/bluez-5.54/ipkg-install/usr/lib/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/sqlite-autoconf-3330000/ipkg-install/usr/lib/`
+13. now run `cd /home/deb10/SBFspot-3.7.0/SBFspot`
+14. `make nosql` and
+15. `make install_nosql`
+16. after `make install_nosql` the compiled files can be found in `/usr/local/bin/sbfspot.3/`
+17. the binary file `SBFspot` is not executable on Host OS, it must be transfered to Target OS (e.g. DLINK DIR-505) along with all related files (cross compiled libraries included, watch inside the 3 LIBDIR directories for compiled libraries)
+18. in case of a missing library, the Target OS will complain about it
