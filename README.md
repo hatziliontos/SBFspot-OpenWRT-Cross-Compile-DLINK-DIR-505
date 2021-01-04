@@ -23,4 +23,8 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard03.jpg)
 
-12. go to `Boost libraries` and select `Boost `
+12. go to `Boost libraries` and select `Boost date_time library`
+
+![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard04.jpg)
+
+13. 
