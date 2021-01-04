@@ -19,8 +19,8 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard02.jpg)
 
-11. just below select `boost`
+11. just below select `boost` and leave `Boost Options` as it is
 
 ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard03.jpg)
 
-12.
+12. go to `Boost libraries` and select `Boost `
