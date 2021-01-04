@@ -84,3 +84,10 @@ from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 16. after `make install_nosql` the compiled files can be found in `/usr/local/bin/sbfspot.3/`
 17. the binary file `SBFspot` is not executable on Host OS, it must be transfered to Target OS (e.g. DLINK DIR-505) along with all related files (cross compiled libraries included, watch inside the 3 LIBDIR directories for compiled libraries)
 18. in case of a missing library, the Target OS will complain about it
+
+## 3. Target OS results (DLINK DIR-505)
+
+1. as i previously noted, in my case, the `DLINK DIR-505` complained only about `libboost_date_time.so`
+2. one solution is to transfer the compiled `libboost_date_time.so` inside `/usr/lib/`
+3. a second solution is to use openwrt GUI package manager, search for the library and press `install` button
+4. 
