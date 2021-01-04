@@ -48,9 +48,9 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 1. create the file `/bin/openwrt.config` and place inside:
 
-`export STAGING_DIR=/home/ligo/chaos_calmer/staging_dir`
+`export STAGING_DIR=/home/deb10/chaos_calmer/staging_dir`
 
-`export TOOLCHAIN_DIR=$STAGING_DIR/toolchain-mips_34kc_gcc-4.8-linaro_uClibc-0.9.33.2`
+`export TOOLCHAIN_DIR=$STAGING_DIR/toolchain-mips_24kc_gcc-8.4.0_musl`
 
 `export LDCFLAGS=$TOOLCHAIN_DIR/usr/lib`
 
@@ -58,5 +58,9 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 `export PATH=$TOOLCHAIN_DIR/bin:$PATH`
 
-2. now run `source /bin/openwrt.config`
-3. 
+2. `toolchain-mips_24kc_gcc-8.4.0_musl` created automatically during compilation and it depends on router architecture (e.g. `DLINK DIR-505`)
+3. now run `source /bin/openwrt.config`
+4. go to `/home/deb10/`
+5. downolad SBFspot source code: `wget https://github.com/SBFspot/SBFspot/archive/V3.7.0.zip`
+6. `unzip V3.7.0.zip`
+7. 
