@@ -7,11 +7,11 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 1. login to host operating system as a non root user, e.g. deb10 in my case, and execute:
 
-`sudo apt update`
+  `sudo apt update`
 
-`sudo apt install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev`
+  `sudo apt install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev`
 
-`sudo apt install subversion mercurial`
+  `sudo apt install subversion mercurial`
 
 2. get the latest openwrt version: `git clone https://github.com/openwrt/openwrt.git`
 3. `cd openwrt`
