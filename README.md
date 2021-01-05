@@ -91,3 +91,5 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 4. `SBFspot` on this system takes 5-6 secs to return a full daily report (e.g. `./SBFspot -finq -v5`)
 
 [source: basic info for openwrt setup](https://electrosome.com/cross-compile-openwrt-c-program/)
+
+[SBFspot can be found here](https://github.com/SBFspot/SBFspot)
