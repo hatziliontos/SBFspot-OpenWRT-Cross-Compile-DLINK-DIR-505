@@ -3,8 +3,6 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 ## 1. Host OS initial openwrt setup (Virtual Box Debian 10)
 
-[source for openwrt setup](https://electrosome.com/cross-compile-openwrt-c-program/)
-
 1. login to host operating system as a non root user, e.g. deb10 in my case, and execute:
 
   `sudo apt update`
@@ -91,3 +89,5 @@ from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 2. one solution is to transfer the compiled `libboost_date_time.so` inside `/usr/lib/`
 3. a second solution is to use openwrt GUI package manager, search for the library and press `install` button
 4. `SBFspot` on this system takes 5-6 secs to return a full daily report (e.g. `./SBFspot -finq -v5`)
+
+[source: basic info for openwrt setup](https://electrosome.com/cross-compile-openwrt-c-program/)
