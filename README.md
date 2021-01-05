@@ -3,7 +3,7 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 ## 1. Host OS initial openwrt setup (Virtual Box Debian 10)
 
-1. login to host operating system as a non root user, e.g. deb10 in my case, and execute:
+1. login to host operating system as a non root user, e.g. deb10 in my case, and run:
 
   `sudo apt update`
 
