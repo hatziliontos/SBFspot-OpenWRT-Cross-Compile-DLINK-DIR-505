@@ -5,11 +5,11 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 1. login to host operating system as a non root user, e.g. deb10 in my case, and run:
 
-  `sudo apt update`
+   `sudo apt update`
 
-  `sudo apt install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev`
+   `sudo apt install git-core build-essential libssl-dev libncurses5-dev unzip gawk zlib1g-dev`
 
-  `sudo apt install subversion mercurial`
+   `sudo apt install subversion mercurial`
 
 2. get the latest openwrt version: `git clone https://github.com/openwrt/openwrt.git`
 3. `cd openwrt`
@@ -19,24 +19,24 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 7. now `make menuconfig` to choose some basic settings
 8. first select the target system, e.g. `DLINK DIR-505`
 
-![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard01.jpg)
+   ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard01.jpg)
 
 9. then go to `Libraries`
 10. select `bluez-libs`
 
-![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard02.jpg)
+    ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard02.jpg)
 
 11. just below select `boost` and leave `Boost Options` as it is
 
-![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard03.jpg)
+    ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard03.jpg)
 
 12. go to `Boost libraries` and select `Boost date_time library`
 
-![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard04.jpg)
+    ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard04.jpg)
 
 13. finally, if you want to use `SBFspot` with `sqlite3 database` support, go to `Libraries->Database`, select `libsqlite3` and leave `Configuration` as it is
 
-![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard05.jpg)
+    ![](https://raw.githubusercontent.com/hatziliontos/SBFspot-OpenWRT-Cross-Compile-DLINK-DIR-505/main/images/Clipboard05.jpg)
 
 14. choose exit and save configuration
 15. now do `make V=sc`, it takes a long time to finish (it took me more than 5 hours)
@@ -46,15 +46,15 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 
 1. create the file `/bin/openwrt.config` and place inside:
 
-`export STAGING_DIR=/home/deb10/chaos_calmer/staging_dir`
+   `export STAGING_DIR=/home/deb10/chaos_calmer/staging_dir`
 
-`export TOOLCHAIN_DIR=$STAGING_DIR/toolchain-mips_24kc_gcc-8.4.0_musl`
+   `export TOOLCHAIN_DIR=$STAGING_DIR/toolchain-mips_24kc_gcc-8.4.0_musl`
 
-`export LDCFLAGS=$TOOLCHAIN_DIR/usr/lib`
+   `export LDCFLAGS=$TOOLCHAIN_DIR/usr/lib`
 
-`export LD_LIBRARY_PATH=$TOOLCHAIN_DIR/usr/lib`
+   `export LD_LIBRARY_PATH=$TOOLCHAIN_DIR/usr/lib`
 
-`export PATH=$TOOLCHAIN_DIR/bin:$PATH`
+   `export PATH=$TOOLCHAIN_DIR/bin:$PATH`
 
 2. `toolchain-mips_24kc_gcc-8.4.0_musl` was created automatically during compilation and it depends on router architecture (e.g. `DLINK DIR-505`)
 3. now run `source /bin/openwrt.config`
@@ -65,13 +65,13 @@ Cross compile SBFspot procedure for OpenWRT DLINK DIR-505 router
 8. go to `/home/deb10/openwrt/staging_dir/toolchain-mips_24kc_gcc-8.4.0_musl/bin/` and see which cross compile tools have been created by the compilation system: `mips-openwrt-linux-musl-ar`, `mips-openwrt-linux-musl-c++`, `mips-openwrt-linux-musl-g++`, `mips-openwrt-linux-musl-gcc`, etc
 9. from `makefile`, make suitable changes to the following lines:
 
-from `CC = gcc` to `CC = mips-openwrt-linux-musl-gcc`
+   from `CC = gcc` to `CC = mips-openwrt-linux-musl-gcc`
 
-from `CXX = g++` to `CXX = mips-openwrt-linux-musl-g++`
+   from `CXX = g++` to `CXX = mips-openwrt-linux-musl-g++`
 
-from `AR = ar` to `AR = mips-openwrt-linux-musl-ar`
+   from `AR = ar` to `AR = mips-openwrt-linux-musl-ar`
 
-from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
+   from `LD = g++ ` to `LD = mips-openwrt-linux-musl-g++`
 
 10. now we have to tell the cross compile tools where to search for our compiled libraries (`libbluetooth`, `libboost_date_time` and if needed `libsqlite3`, the same with their c++ header files)
 11. continue to `INCDIR     := ` and replace with `INCDIR     := /home/deb10/openwrt/build_dir/target-mips_24kc_musl/boost_1_75_0/ipkg-install/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/bluez-5.54/ipkg-install/usr/include/ /home/deb10/openwrt/build_dir/target-mips_24kc_musl/sqlite-autoconf-3330000/ipkg-install/usr/include/`
